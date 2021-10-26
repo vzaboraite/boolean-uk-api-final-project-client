@@ -1,10 +1,21 @@
-import { Switch, Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Users from "./pages/Users";
+import User from "./pages/User";
+import Recipes from "./pages/Recipes";
 
 function App() {
   return (
     <>
       <Switch>
-        <Router></Router>
+        <Route exact path="/users">
+          <Users />
+        </Route>
+        <Route exact path="/users/:userId">
+          <User />
+        </Route>
+        <Route exact path="/recipes">
+          <Recipes />
+        </Route>
       </Switch>
     </>
   );
