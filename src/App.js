@@ -31,20 +31,20 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/recipes/create">
-          <CreateRecipeForm recipes={recipes} setrecipes={setRecipes} />
-        </Route>
-        <Route exact path="/users/create">
-          <CreateUserForm />
-        </Route>
         <Route exact path="/users">
           <Users />
+        </Route>
+        <Route exact path="/users/create">
+          <CreateUserForm users={users} setUsers={setUsers} />
         </Route>
         <Route exact path="/users/:userId">
           <User />
         </Route>
         <Route exact path="/recipes">
           <Recipes />
+        </Route>
+        <Route exact path="/recipes/create">
+          <CreateRecipeForm recipes={recipes} setRecipes={setRecipes} />
         </Route>
       </Switch>
     </>
