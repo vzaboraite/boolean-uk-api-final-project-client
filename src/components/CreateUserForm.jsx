@@ -4,7 +4,6 @@ export default function CreateUserForm() {
     const [users, setUsers] = useState([])
     const [userName, setUserName] = useState("")
     const [email, setEmail] = useState("")
-    const [profiles, setProfiles] = useState([])
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
 
@@ -48,7 +47,7 @@ export default function CreateUserForm() {
             body: JSON.stringify(userToCreate)
         }
 
-        fetch("https://localhost:3030/users", fetchOptions)
+        fetch("http://localhost:3030/users", fetchOptions)
             .then(res => res.json())
             .then(newUser => {
 
@@ -65,7 +64,7 @@ export default function CreateUserForm() {
                     body: JSON.stringify(profileToCreate)
                 }
 
-                fetch("https://localhost:3030/users", fetchTools)
+                fetch("http://localhost:3030/users", fetchTools)
                     .then((res) => res.json())
                     .then((newProfile) => {
 

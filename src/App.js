@@ -1,13 +1,25 @@
-import { Switch, Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Users from "./pages/Users";
+import User from "./pages/User";
+import Recipes from "./pages/Recipes";
 import CreateUserForm from "./components/CreateUserForm"
 
 function App() {
   return (
     <>
       <Switch>
-        <Router exact path="/users">
+        <Route exact path="/users/create">
           <CreateUserForm />
-        </Router>
+        </Route>
+        <Route exact path="/users">
+          <Users />
+        </Route>
+        <Route exact path="/users/:userId">
+          <User />
+        </Route>
+        <Route exact path="/recipes">
+          <Recipes />
+        </Route>
       </Switch>
     </>
   );
