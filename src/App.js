@@ -1,5 +1,13 @@
+import { Switch, Router } from "react-router-dom";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Switch>
+        <Router></Router>
+      </Switch>
+    </>
+  );
 }
 
 export default App;
