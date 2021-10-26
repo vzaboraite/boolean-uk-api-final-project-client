@@ -19,6 +19,14 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:3030/recipes")
+      .then((res) => res.json())
+      .then((recipesData) => {
+        console.log({ recipesData: recipesData.data });
+        setRecipes(recipesData.data);
+      });
+  }, []);
 
   return (
     <>
