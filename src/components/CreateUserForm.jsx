@@ -32,9 +32,56 @@ export default function CreateUserForm() {
         setLastName(event.target.vaule)
     }
 
+    const handleSubmit = event => {
+        event.preventDefault()
+
+        const userToCreate = {
+            userName,
+            email
+        }
+
+        const fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userToCreate)
+        }
+
+        fetch("https://localhost:3030/users", fetchOptions)
+            .then(res => res.json())
+            .then(newUser => {
+
+                const profileToCreate = {
+                    firstName,
+                    lastName,
+                    userId: newUser.id
+                }
+                const fetchTools = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(profileToCreate)
+                }
+
+                fetch("https://localhost:3030/users", fetchTools)
+                    .then((res) => res.json())
+                    .then((newProfile) => {
+
+                        const userToAdd = {
+                            ...newUser,
+                            profile: newProfile
+                        }
+
+                        setUsers([...users, userToAdd])
+                    })
+            }), []
+    }
+
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input onChange={handleUserName} />
             <input onChange={handleEmail} />
             <input onChange={handleFirstName} />
