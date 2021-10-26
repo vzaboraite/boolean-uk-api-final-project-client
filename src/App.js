@@ -32,7 +32,7 @@ function App() {
     <>
       <Switch>
         <Route exact path="/users">
-          <Users />
+          <Users users={users} />
         </Route>
         <Route exact path="/users/create">
           <CreateUserForm users={users} setUsers={setUsers} />
