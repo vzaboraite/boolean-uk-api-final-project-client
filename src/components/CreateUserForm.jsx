@@ -38,6 +38,7 @@ export default function CreateUserForm() {
             userName,
             email
         }
+        console.log("User to create: ", userToCreate)
 
         const fetchOptions = {
             method: "POST",
@@ -75,17 +76,20 @@ export default function CreateUserForm() {
 
                         setUsers([...users, userToAdd])
                     })
-            }), []
+            })
     }
 
 
     return (
         <form onSubmit={handleSubmit}>
             <h1>Create User</h1>
-            <input onChange={handleUserName} />
-            <input onChange={handleEmail} />
-            <input onChange={handleFirstName} />
-            <input onChange={handleLastName} />
+            <ul>
+                <li><label>Username</label><input onChange={handleUserName} /></li>
+                <li><label>Email</label><input onChange={handleEmail} /></li>
+                <li><label>First Name</label><input onChange={handleFirstName} /></li>
+                <li><label>Last Name</label><input onChange={handleLastName} /></li>
+                <li><button type="submit">Submit</button></li>
+            </ul>
         </form>
 
     )
