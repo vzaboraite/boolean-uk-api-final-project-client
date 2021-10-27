@@ -41,7 +41,7 @@ function App() {
           <User />
         </Route>
         <Route exact path="/recipes">
-          <Recipes />
+          <Recipes recipes={recipes} />
         </Route>
         <Route exact path="/recipes/create">
           <CreateRecipeForm recipes={recipes} setRecipes={setRecipes} />
