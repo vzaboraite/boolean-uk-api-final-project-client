@@ -55,6 +55,7 @@ export default function CreateUserForm({ users, setUsers }) {
                     lastName,
                     userId: newUser.id,
                 };
+                console.log("Profile to create: ", profileToCreate)
                 const fetchTools = {
                     method: "POST",
                     headers: {
