@@ -7,21 +7,25 @@ export default function CreateUserForm({ users, setUsers }) {
     const [lastName, setLastName] = useState("");
 
     const handleUserName = (event) => {
+        console.log("User handler: ", event.target.value)
 
         setUserName(event.target.vaule);
     };
 
     const handleEmail = (event) => {
+        console.log("User email: ", event.target.value)
 
         setEmail(event.target.vaule);
     };
 
     const handleFirstName = (event) => {
+        console.log("User firstName: ", event.target.value)
 
         setFirstName(event.target.vaule);
     };
 
     const handleLastName = (event) => {
+        console.log("User lastName: ", event.target.value)
 
         setLastName(event.target.vaule);
     };
@@ -32,6 +36,10 @@ export default function CreateUserForm({ users, setUsers }) {
         const userToCreate = {
             userName,
             email,
+            profile: {
+                firstName,
+                lastName,
+            }
         };
         console.log("User to create: ", userToCreate);
 
@@ -46,30 +54,10 @@ export default function CreateUserForm({ users, setUsers }) {
         fetch("http://localhost:3030/users", fetchOptions)
             .then((res) => res.json())
             .then((newUser) => {
-                const profileToCreate = {
-                    firstName,
-                    lastName,
-                    userId: newUser.id,
-                };
-                console.log("Profile to create: ", profileToCreate)
-                const fetchTools = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(profileToCreate),
-                };
+                console.log("New user: ", newUser)
 
-                fetch("http://localhost:3030/users", fetchTools)
-                    .then((res) => res.json())
-                    .then((newProfile) => {
-                        const userToAdd = {
-                            ...newUser,
-                            profile: newProfile,
-                        };
 
-                        setUsers([...users, userToAdd]);
-                    });
+                // setUsers([...newUser, userToCreate]);
             });
     };
 
@@ -92,7 +80,7 @@ export default function CreateUserForm({ users, setUsers }) {
                         onChange={handleEmail}
                         id="email"
                         name="email"
-                        type="text"
+                        type="email"
                         value={email} />
                 </li>
                 <li>
