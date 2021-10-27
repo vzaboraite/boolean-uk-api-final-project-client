@@ -28,6 +28,10 @@ function App() {
       });
   }, []);
 
+  if (users.length === 0 || recipes.length === 0) {
+    return "loading";
+  }
+
   return (
     <>
       <Switch>
