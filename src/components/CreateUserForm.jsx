@@ -7,25 +7,21 @@ export default function CreateUserForm({ users, setUsers }) {
     const [lastName, setLastName] = useState("");
 
     const handleUserName = (event) => {
-        event.preventDefault();
 
         setUserName(event.target.vaule);
     };
 
     const handleEmail = (event) => {
-        event.preventDefault();
 
         setEmail(event.target.vaule);
     };
 
     const handleFirstName = (event) => {
-        event.preventDefault();
 
         setFirstName(event.target.vaule);
     };
 
     const handleLastName = (event) => {
-        event.preventDefault();
 
         setLastName(event.target.vaule);
     };
