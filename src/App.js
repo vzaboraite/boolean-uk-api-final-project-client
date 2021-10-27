@@ -5,6 +5,7 @@ import Users from "./pages/Users";
 import User from "./pages/User";
 import Recipes from "./pages/Recipes";
 import CreateUserForm from "./components/CreateUserForm";
+import EditUserForm from "./components/EditUserForm";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route exact path="/users/:userId">
           <User />
+        </Route>
+        <Route exact path="/users/:userId/edit">
+          <EditUserForm users={users} setUsers={setUsers} />
         </Route>
         <Route exact path="/recipes">
           <Recipes recipes={recipes} />
