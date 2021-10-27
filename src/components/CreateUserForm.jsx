@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function CreateUserForm({ users, setUsers }) {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+
+    const history = useHistory();
 
     const handleUserName = (event) => {
         setUserName(event.target.value);
@@ -94,7 +97,7 @@ export default function CreateUserForm({ users, setUsers }) {
                         value={lastName} />
                 </li>
                 <li>
-                    <button type="submit">Submit</button>
+                    <button type="submit" onClick={() => history.push("/users")}>Submit</button>
                 </li>
             </ul>
         </form>
