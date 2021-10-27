@@ -7,26 +7,18 @@ export default function CreateUserForm({ users, setUsers }) {
     const [lastName, setLastName] = useState("");
 
     const handleUserName = (event) => {
-        console.log("User handler: ", event.target.value)
-
         setUserName(event.target.value);
     };
 
     const handleEmail = (event) => {
-        console.log("User email: ", event.target.value)
-
         setEmail(event.target.value);
     };
 
     const handleFirstName = (event) => {
-        console.log("User firstName: ", event.target.value)
-
         setFirstName(event.target.value);
     };
 
     const handleLastName = (event) => {
-        console.log("User lastName: ", event.target.value)
-
         setLastName(event.target.value);
     };
 
@@ -57,7 +49,7 @@ export default function CreateUserForm({ users, setUsers }) {
                 console.log("New user: ", newUser)
 
 
-                // setUsers([...newUser, userToCreate]);
+                setUsers([newUser, userToCreate]);
             });
     };
 
