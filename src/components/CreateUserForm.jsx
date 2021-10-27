@@ -53,6 +53,7 @@ export default function CreateUserForm({ users, setUsers }) {
 
 
                 setUsers([newUser, userToCreate]);
+                history.push("/users")
             });
     };
 
@@ -97,7 +98,7 @@ export default function CreateUserForm({ users, setUsers }) {
                         value={lastName} />
                 </li>
                 <li>
-                    <button type="submit" onClick={() => history.push("/users")}>Submit</button>
+                    <button type="submit" >Submit</button>
                 </li>
             </ul>
         </form>
