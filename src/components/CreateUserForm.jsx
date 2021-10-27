@@ -52,7 +52,7 @@ export default function CreateUserForm({ users, setUsers }) {
                 console.log("New user: ", newUser)
 
 
-                setUsers([newUser, userToCreate]);
+                setUsers([...users, newUser]);
                 history.push("/users")
             });
     };
