@@ -8,6 +8,7 @@ const CreateRecipeForm = (props) => {
   const [description, setDescription] = useState("");
   const [prepTime, setPrepTime] = useState("");
   const [cookingTime, setCookingTime] = useState("");
+  const [name, setName] = useState([]);
 
   console.log("Inside CreateRecipeForm State: ", {
     recipes: {
@@ -15,40 +16,9 @@ const CreateRecipeForm = (props) => {
       description,
       prepTime: parseInt(prepTime, 10),
       cookingTime: parseInt(cookingTime, 10),
-
+      name,
     },
   });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const recipeToCreate = {
-      title,
-      description,
-      prepTime: parseInt(prepTime, 10),
-      cookingTime: parseInt(cookingTime, 10),
-    //   userId: 1,
-    //   ingredients:[]
-    };
-
-    const fetchOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(recipeToCreate),
-    };
-    fetch("http://localhost:3030/recipes", fetchOptions)
-      .then((res) => res.json())
-      .then((newRecipeData) => {
-        console.log("Recipe Data TO POST: ", { newRecipeData });
-
-        const recipeToAdd = {
-          ...newRecipeData,
-        };
-        setRecipes([...recipeToAdd]);
-      });
-  };
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
@@ -62,7 +32,55 @@ const CreateRecipeForm = (props) => {
   const handlecookingTime = (event) => {
     setCookingTime(event.target.value);
   };
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // data: {
+    //   title: req.body.title,
+    //   description: req.body.description,
+    //   prepTime: req.body.prepTime,
+    //   cookingTime: req.body.cookingTime,
+    //   user: {
+    //     connect: { id: req.body.userId },
+    //   },
+    //   ingredients: {
+    //     create: [
+    //       {
+    //         name: req.body.ingredients.name,
+    //       },
+    //     ],
+    //   },
+    // },
+    const recipeToCreate = {
+      title,
+      description,
+      prepTime: parseInt(prepTime, 10),
+      cookingTime: parseInt(cookingTime, 10),
+      userId: 1,
+      ingredients: [
+        {
+          name: "",
+        },
+      ],
+    };
 
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(recipeToCreate),
+    };
+    fetch("http://localhost:3030/recipes", fetchOptions)
+      .then((res) => res.json())
+      .then((newRecipeData) => {
+        console.log("Recipe Data TO POST: ", newRecipeData);
+
+        setRecipes([...recipes, newRecipeData]);
+      });
+  };
   return (
     <form className="" onSubmit={handleSubmit}>
       <h1>Recipe Form</h1>
@@ -96,7 +114,7 @@ const CreateRecipeForm = (props) => {
         className=""
         id="prepTime"
         name="prepTime"
-        type="text"
+        type="number"
         onChange={handleprepTime}
         value={prepTime}
       />
@@ -107,9 +125,20 @@ const CreateRecipeForm = (props) => {
         className=""
         id="cookingTime"
         name="cookingTime"
-        type="text"
+        type="number"
         onChange={handlecookingTime}
         value={cookingTime}
+      />
+      <div className="">
+        <label for="name">Ingredient:</label>
+      </div>
+      <input
+        className=""
+        id="name"
+        name="name"
+        type="text"
+        onChange={handleName}
+        value={name}
       />
       <div className="">
         <div>
