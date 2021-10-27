@@ -98,7 +98,7 @@ export default function CreateUserForm({ users, setUsers }) {
                         value={lastName} />
                 </li>
                 <li>
-                    <button type="submit" >Submit</button>
+                    <button type="submit">Submit</button>
                 </li>
             </ul>
         </form>
