@@ -9,25 +9,25 @@ export default function CreateUserForm({ users, setUsers }) {
     const handleUserName = (event) => {
         console.log("User handler: ", event.target.value)
 
-        setUserName(event.target.vaule);
+        setUserName(event.target.value);
     };
 
     const handleEmail = (event) => {
         console.log("User email: ", event.target.value)
 
-        setEmail(event.target.vaule);
+        setEmail(event.target.value);
     };
 
     const handleFirstName = (event) => {
         console.log("User firstName: ", event.target.value)
 
-        setFirstName(event.target.vaule);
+        setFirstName(event.target.value);
     };
 
     const handleLastName = (event) => {
         console.log("User lastName: ", event.target.value)
 
-        setLastName(event.target.vaule);
+        setLastName(event.target.value);
     };
 
     const handleSubmit = (event) => {
