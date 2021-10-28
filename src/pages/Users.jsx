@@ -23,14 +23,6 @@ export default function Users({ users }) {
                 <span>Username: {userName}</span> <br />
                 <span>Email: {email}</span>
                 <br />
-                {profile && (
-                  <>
-                    <span>Name: {profile.firstName}</span>
-                    <br />
-                    <span>Last name: {profile.lastName}</span>
-                    <br />
-                  </>
-                )}
               </p>
               <button onClick={() => history.push("/users/:userId")}>
                 Show profile

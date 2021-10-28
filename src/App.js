@@ -5,6 +5,7 @@ import Users from "./pages/Users";
 import User from "./pages/User";
 import Recipes from "./pages/Recipes";
 import CreateUserForm from "./components/CreateUserForm";
+import EditUserForm from "./components/EditUserForm";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -28,6 +29,10 @@ function App() {
       });
   }, []);
 
+  if (users.length === 0 || recipes.length === 0) {
+    return "loading";
+  }
+
   return (
     <>
       <Switch>
@@ -40,8 +45,11 @@ function App() {
         <Route exact path="/users/:userId">
           <User />
         </Route>
+        <Route exact path="/users/:userId/edit">
+          <EditUserForm users={users} setUsers={setUsers} />
+        </Route>
         <Route exact path="/recipes">
-          <Recipes />
+          <Recipes recipes={recipes} />
         </Route>
         <Route exact path="/recipes/create">
           <CreateRecipeForm recipes={recipes} setRecipes={setRecipes} />
