@@ -75,7 +75,7 @@ export default function EditRecipeForm(props) {
                     }
                 });
 
-                setRecipes(updatedRecipes);
+                setRecipeToEdit(updatedRecipes);
             })
     }
 
