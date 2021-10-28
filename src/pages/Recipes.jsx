@@ -11,6 +11,11 @@ export default function Recipes({ recipes }) {
           Add recipe
         </button>
       </li>
+      <li>
+        <button onClick={() => history.push("/recipes/:id/edit")}>
+          Edit recipe
+        </button>
+      </li>
       {recipes.map((recipe, index) => {
         console.log(recipe);
         const { title, prepTime, cookingTime, description } = recipe;

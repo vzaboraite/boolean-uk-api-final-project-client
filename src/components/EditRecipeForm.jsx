@@ -81,7 +81,60 @@ export default function EditRecipeForm(props) {
 
     return (
         <>
-
+            <form onSubmit={handleSubmit}>
+                <input
+                    className=""
+                    id="title"
+                    name="title"
+                    type="text"
+                    onChange={handleTitle}
+                    value={title}
+                />
+                <div className="">
+                    <label for="description">Description:</label>
+                </div>
+                <input
+                    className=""
+                    id="description"
+                    name="description"
+                    type="text"
+                    onChange={handleDescription}
+                    value={description}
+                />
+                <div className="">
+                    <label for="prepTime">PrepTime:</label>
+                </div>
+                <input
+                    className=""
+                    id="prepTime"
+                    name="prepTime"
+                    type="number"
+                    onChange={handleprepTime}
+                    value={prepTime}
+                />
+                <div className="">
+                    <label for="cookingTime">CookingTime:</label>
+                </div>
+                <input
+                    className=""
+                    id="cookingTime"
+                    name="cookingTime"
+                    type="number"
+                    onChange={handlecookingTime}
+                    value={cookingTime}
+                />
+                <div className="">
+                    <label for="name">Ingredient:</label>
+                </div>
+                <input
+                    className=""
+                    id="name"
+                    name="name"
+                    type="text"
+                    onChange={handleName}
+                    value={name}
+                />
+            </form>
         </>
     )
 }
