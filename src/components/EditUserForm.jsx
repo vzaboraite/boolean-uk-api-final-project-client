@@ -75,6 +75,20 @@ export default function EditUserForm({ users, setUsers }) {
       });
   };
 
+  const handleDelete = () => {
+    const userToDelete = { ...userToEdit };
+    const { id } = userToDelete;
+
+    fetch(`http://localhost:3030/users/${id}`, { method: "DELETE" })
+      .then((res) => res.json())
+      .then(() => {
+        const updatedUsers = users.filter((user) => user.id !== id);
+        setUsers(updatedUsers);
+
+        history.push("/users");
+      });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <h1>Edit profile</h1>
@@ -121,6 +135,9 @@ export default function EditUserForm({ users, setUsers }) {
         </li>
         <li>
           <button type="submit">Submit</button>
+          <button type="button" onClick={handleDelete}>
+            Delete
+          </button>
         </li>
       </ul>
     </form>
