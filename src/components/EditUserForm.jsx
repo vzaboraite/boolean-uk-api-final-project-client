@@ -6,17 +6,23 @@ export default function EditUserForm({ users, setUsers }) {
 
   const { userId } = useParams();
   const foundUser = users.find((user) => {
-    console.log({ user });
-    console.log({ id: user.id });
-    console.log(user.id === parseInt(userId));
     return user.id === parseInt(userId);
   });
-  console.log("foundUser:", foundUser);
   const [userToEdit] = useState(foundUser);
   const [userName, setUserName] = useState(userToEdit.userName);
   const [email, setEmail] = useState(userToEdit.email);
-  const [firstName, setFirstName] = useState(userToEdit.profile.firstName);
-  const [lastName, setLastName] = useState(userToEdit.profile.lastName);
+  /*
+  Here using optional chaining `?.` operator, to check if the `profile` property exists in `userToEdit` 
+  object. Then using `??` operator we return an empty string if the `profile` property is null or undefined.
+  References:
+   binary logical operators => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#binary_logical_operators
+   ?? operator => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator
+   ?. operator => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+   */
+  const [firstName, setFirstName] = useState(
+    userToEdit.profile?.firstName ?? ""
+  );
+  const [lastName, setLastName] = useState(userToEdit.profile?.lastName ?? "");
 
   const history = useHistory();
 
