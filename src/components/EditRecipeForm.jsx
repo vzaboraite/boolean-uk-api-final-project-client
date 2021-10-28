@@ -45,9 +45,38 @@ export default function EditRecipeForm(props) {
         const recipeToUpdate = {
             title,
             description,
-            prepTime,
-            cookingTime
+            prepTime: parseInt(prepTime, 10),
+            cookingTime: parseInt(cookingTime, 10),
+            userId: 1,
+            ingredients: [
+                {
+                    name: "",
+                },
+            ],
         }
+
+        const fetchOptions = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(recipeToUpdate),
+        };
+
+        fetch(`http://localhost:3030/recipes/${recipeId}`, fetchOptions)
+            .then((res) => res.json())
+            .then((updatedRecipe) => {
+
+                const updatedRecipes = recipes.map((recipe) => {
+                    if (updatedRecipe.id === recipeId) {
+                        return updatedRecipe;
+                    } else {
+                        return recipe;
+                    }
+                });
+
+                setRecipes(updatedRecipes);
+            })
     }
 
     return (
