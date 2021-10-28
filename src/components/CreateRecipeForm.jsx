@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useParams } from "react-router";
 
 const CreateRecipeForm = (props) => {
   const { recipes, setRecipes } = props;
+  const { userId } = useParams();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -58,7 +60,7 @@ const CreateRecipeForm = (props) => {
       description,
       prepTime: parseInt(prepTime, 10),
       cookingTime: parseInt(cookingTime, 10),
-      userId: 1,
+      userId: parseInt(userId),
       ingredients: [
         {
           name: "",

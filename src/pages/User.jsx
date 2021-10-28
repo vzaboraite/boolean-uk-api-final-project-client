@@ -25,6 +25,9 @@ export default function User({ users }) {
       <button onClick={() => history.push(`/users/${userId}/edit`)}>
         Edit user
       </button>
+      <button onClick={() => history.push(`/users/${userId}/recipes/create`)}>
+        Add recipe
+      </button>
       {foundUser.recipes.length > 0 && (
         <>
           <p>Recipes: </p>

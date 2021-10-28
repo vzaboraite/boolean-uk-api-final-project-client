@@ -52,7 +52,7 @@ function App() {
         <Route exact path="/recipes">
           <Recipes recipes={recipes} />
         </Route>
-        <Route exact path="/recipes/create">
+        <Route exact path="/users/:userId/recipes/create">
           <CreateRecipeForm recipes={recipes} setRecipes={setRecipes} />
         </Route>
         <Route exact path="/recipes/:recipeId/edit">
