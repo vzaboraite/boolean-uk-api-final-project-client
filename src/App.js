@@ -30,9 +30,9 @@ function App() {
       });
   }, []);
 
-  // if (users.length === 0 || recipes.length === 0) {
-  //   return "loading";
-  // }
+  if (users.length === 0 || recipes.length === 0) {
+    return "loading";
+  }
 
   return (
     <>
@@ -44,7 +44,7 @@ function App() {
           <CreateUserForm users={users} setUsers={setUsers} />
         </Route>
         <Route exact path="/users/:userId">
-          <User />
+          <User users={users} />
         </Route>
         <Route exact path="/users/:userId/edit">
           <EditUserForm users={users} setUsers={setUsers} />

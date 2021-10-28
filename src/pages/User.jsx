@@ -1,33 +1,23 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function User() {
+export default function User({ users }) {
   const history = useHistory();
   const { userId } = useParams();
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    fetch(`http://localhost:3030/users/${userId}`)
-      .then((res) => res.json())
-      .then((userData) => {
-        console.log(userData);
-        if (userData === null) {
-          history.push("/users");
-        }
-        setUser(userData);
-      });
-  }, [userId]);
+  const foundUser = users.find((user) => user.id === parseInt(userId));
 
-  if (user === null) {
-    return "loading";
+  if (!foundUser) {
+    history.push("/users");
+    return null;
   }
 
   return (
     <>
-      <h2>Username: {user.userName}</h2>
+      <h2>Username: {foundUser.userName}</h2>
       <p>Recipes: </p>
       <ul>
-        {user.recipes.map((recipe, index) => {
+        {foundUser.recipes.map((recipe, index) => {
           const { title, prepTime, cookingTime, description } = recipe;
 
           return (
