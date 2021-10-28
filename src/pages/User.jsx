@@ -15,28 +15,42 @@ export default function User({ users }) {
   return (
     <>
       <h2>Username: {foundUser.userName}</h2>
-      <p>Recipes: </p>
-      <ul>
-        {foundUser.recipes.map((recipe, index) => {
-          const { title, prepTime, cookingTime, description } = recipe;
+      <h3>Email: {foundUser.email}</h3>
+      {foundUser.profile && (
+        <>
+          <p>Name: {foundUser.profile?.firstName ?? ""}</p>
+          <p>Surname: {foundUser.profile?.lastName ?? ""}</p>
+        </>
+      )}
+      <button onClick={() => history.push(`/users/${userId}/edit`)}>
+        Edit user
+      </button>
+      {foundUser.recipes.length > 0 && (
+        <>
+          <p>Recipes: </p>
+          <ul>
+            {foundUser.recipes.map((recipe, index) => {
+              const { title, prepTime, cookingTime, description } = recipe;
 
-          return (
-            <li key={index}>
-              <p>
-                <span>Title: {title}</span> <br />
-                <span>Preparation time: {prepTime}</span> <br />
-                <span>Cooking time: {cookingTime}</span> <br />
-                <span>Description: {description}</span>
-              </p>
-              <button
-                onClick={() => history.push(`/recipes/${recipe.id}/edit`)}
-              >
-                Edit recipe
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+              return (
+                <li key={index}>
+                  <p>
+                    <span>Title: {title}</span> <br />
+                    <span>Preparation time: {prepTime}</span> <br />
+                    <span>Cooking time: {cookingTime}</span> <br />
+                    <span>Description: {description}</span>
+                  </p>
+                  <button
+                    onClick={() => history.push(`/recipes/${recipe.id}/edit`)}
+                  >
+                    Edit recipe
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
     </>
   );
 }
