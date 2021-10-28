@@ -12,6 +12,8 @@ export default function EditRecipeForm(props) {
         return recipe.id === parseInt(recipeId)
     })
 
+    console.log("recipe id", recipeId)
+
     const [recipeToEdit, setRecipeToEdit] = useState(foundRecipe)
     const [title, setTitle] = useState(recipeToEdit.title);
     const [description, setDescription] = useState(recipeToEdit.description);
@@ -19,23 +21,30 @@ export default function EditRecipeForm(props) {
     const [cookingTime, setCookingTime] = useState(recipeToEdit.cookingTime);
     const [name, setName] = useState(recipeToEdit.name);
 
+    const history = useHistory();
+
     const handleTitle = (event) => {
+        event.preventDefault()
         setTitle(event.target.value);
     };
 
     const handleDescription = (event) => {
+        event.preventDefault()
         setDescription(event.target.value);
     };
 
     const handleprepTime = (event) => {
+        event.preventDefault()
         setPrepTime(event.target.value);
     };
 
     const handlecookingTime = (event) => {
+        event.preventDefault()
         setCookingTime(event.target.value);
     };
 
     const handleName = (event) => {
+        event.preventDefault()
         setName(event.target.value);
     };
 
@@ -47,7 +56,6 @@ export default function EditRecipeForm(props) {
             description,
             prepTime: parseInt(prepTime, 10),
             cookingTime: parseInt(cookingTime, 10),
-            userId: 1,
             ingredients: [
                 {
                     name: "",
@@ -63,19 +71,20 @@ export default function EditRecipeForm(props) {
             body: JSON.stringify(recipeToUpdate),
         };
 
-        fetch(`http://localhost:3030/recipes/${recipeId}`, fetchOptions)
+        fetch(`http://localhost:3030/recipes/${recipes.id}`, fetchOptions)
             .then((res) => res.json())
             .then((updatedRecipe) => {
 
                 const updatedRecipes = recipes.map((recipe) => {
-                    if (updatedRecipe.id === recipeId) {
+                    if (updatedRecipe.id === recipe.id) {
                         return updatedRecipe;
                     } else {
                         return recipe;
                     }
                 });
 
-                setRecipeToEdit(updatedRecipes);
+                setRecipes(updatedRecipes);
+                history.push("/recipes")
             })
     }
 
@@ -134,6 +143,7 @@ export default function EditRecipeForm(props) {
                     onChange={handleName}
                     value={name}
                 />
+                <button type="submit">Edit</button>
             </form>
         </>
     )

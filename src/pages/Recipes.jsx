@@ -25,7 +25,7 @@ export default function Recipes({ recipes }) {
               <span>Cooking time: {cookingTime}</span> <br />
               <span>Description: {description}</span>
             </p>
-            <button onClick={() => history.push("/recipes/:recipeId/edit")}>
+            <button onClick={() => history.push(`/recipes/${recipe.id}/edit`)}>
               Edit recipe
         </button>
           </li>
