@@ -6,6 +6,7 @@ import User from "./pages/User";
 import Recipes from "./pages/Recipes";
 import CreateUserForm from "./components/CreateUserForm";
 import EditUserForm from "./components/EditUserForm";
+import EditRecipeForm from "./components/EditRecipeForm";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route exact path="/recipes/create">
           <CreateRecipeForm recipes={recipes} setRecipes={setRecipes} />
+        </Route>
+        <Route exact path="/recipes/:recipeId/edit">
+          <EditRecipeForm recipes={recipes} setRecipes={setRecipes} />
         </Route>
       </Switch>
     </>
