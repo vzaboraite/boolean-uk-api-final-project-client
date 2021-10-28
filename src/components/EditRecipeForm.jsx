@@ -69,7 +69,7 @@ export default function EditRecipeForm(props) {
             },
             body: JSON.stringify(recipeToUpdate),
         };
-        fetch(`http://localhost:3030/recipes/${recipes.id}`, fetchOptions)
+        fetch(`http://localhost:3030/recipes/${recipeId}`, fetchOptions)
             .then((res) => res.json())
             .then((updatedRecipe) => {
                 const updatedRecipes = recipes.map((recipe) => {
