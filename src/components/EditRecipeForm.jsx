@@ -41,6 +41,13 @@ export default function EditRecipeForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+
+        const recipeToUpdate = {
+            title,
+            description,
+            prepTime,
+            cookingTime
+        }
     }
 
     return (
