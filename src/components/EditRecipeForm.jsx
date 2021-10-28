@@ -62,7 +62,6 @@ export default function EditRecipeForm(props) {
                 },
             ],
         }
-
         const fetchOptions = {
             method: "PUT",
             headers: {
@@ -70,11 +69,9 @@ export default function EditRecipeForm(props) {
             },
             body: JSON.stringify(recipeToUpdate),
         };
-
         fetch(`http://localhost:3030/recipes/${recipes.id}`, fetchOptions)
             .then((res) => res.json())
             .then((updatedRecipe) => {
-
                 const updatedRecipes = recipes.map((recipe) => {
                     if (updatedRecipe.id === recipe.id) {
                         return updatedRecipe;
@@ -82,7 +79,6 @@ export default function EditRecipeForm(props) {
                         return recipe;
                     }
                 });
-
                 setRecipes(updatedRecipes);
                 history.push("/recipes")
             })
