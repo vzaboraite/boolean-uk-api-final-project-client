@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import User from "./User";
 
 export default function Users({ users }) {
   const history = useHistory();
@@ -14,17 +15,13 @@ export default function Users({ users }) {
           </button>
         </li>
         {users.map((user, index) => {
-          console.log({ user });
-          const { userName, email, profile } = user;
-
           return (
             <li key={index}>
               <p>
-                <span>Username: {userName}</span> <br />
-                <span>Email: {email}</span>
-                <br />
+                <span>Username: {user.userName}</span> <br />
+                <span>Email: {user.email}</span>
               </p>
-              <button onClick={() => history.push("/users/:userId")}>
+              <button onClick={() => history.push(`/users/${user.id}`)}>
                 Show profile
               </button>
             </li>
