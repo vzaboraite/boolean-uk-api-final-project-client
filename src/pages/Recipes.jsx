@@ -12,9 +12,6 @@ export default function Recipes({ recipes }) {
         </button>
       </li>
       <li>
-        <button onClick={() => history.push("/recipes/:id/edit")}>
-          Edit recipe
-        </button>
       </li>
       {recipes.map((recipe, index) => {
         console.log(recipe);
@@ -28,6 +25,9 @@ export default function Recipes({ recipes }) {
               <span>Cooking time: {cookingTime}</span> <br />
               <span>Description: {description}</span>
             </p>
+            <button onClick={() => history.push("/recipes/:id/edit")}>
+              Edit recipe
+        </button>
           </li>
         );
       })}
