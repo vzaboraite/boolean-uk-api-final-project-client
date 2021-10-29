@@ -17,6 +17,14 @@ export default function User({ users }) {
       <h2>Username: {foundUser.userName}</h2>
       <h3>Email: {foundUser.email}</h3>
       {foundUser.profile && (
+        /*
+        Here using optional chaining `?.` operator, to check if the `profile` property exists in `foundUser` 
+        object. Then using `??` operator we return an empty string if the `profile` property is null or undefined.
+        References:
+         binary logical operators => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#binary_logical_operators
+         ?? operator => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator
+         ?. operator => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+       */
         <>
           <p>Name: {foundUser.profile?.firstName ?? ""}</p>
           <p>Surname: {foundUser.profile?.lastName ?? ""}</p>
