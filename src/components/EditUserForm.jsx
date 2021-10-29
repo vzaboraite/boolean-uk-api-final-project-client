@@ -27,18 +27,22 @@ export default function EditUserForm({ users, setUsers }) {
   const history = useHistory();
 
   const handleUserName = (event) => {
+    event.preventDefault()
     setUserName(event.target.value);
   };
 
   const handleEmail = (event) => {
+    event.preventDefault()
     setEmail(event.target.value);
   };
 
   const handleFirstName = (event) => {
+    event.preventDefault()
     setFirstName(event.target.value);
   };
 
   const handleLastName = (event) => {
+    event.preventDefault()
     setLastName(event.target.value);
   };
 
