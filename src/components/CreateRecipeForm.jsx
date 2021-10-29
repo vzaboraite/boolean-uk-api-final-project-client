@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const CreateRecipeForm = (props) => {
   const { recipes, setRecipes } = props;
   const { userId } = useParams();
+  const history = useHistory();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -79,6 +81,7 @@ const CreateRecipeForm = (props) => {
       .then((res) => res.json())
       .then((newRecipeData) => {
         console.log("Recipe Data TO POST: ", newRecipeData);
+        history.push("/recipes");
 
         setRecipes([...recipes, newRecipeData]);
       });
