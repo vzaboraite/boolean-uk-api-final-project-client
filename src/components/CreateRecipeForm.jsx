@@ -83,7 +83,7 @@ const CreateRecipeForm = (props) => {
         console.log("Recipe Data TO POST: ", newRecipeData);
         history.push("/recipes");
 
-        setRecipes([...recipes, newRecipeData]);
+        setRecipes([...recipes, newRecipeData.data]);
       });
   };
   return (
