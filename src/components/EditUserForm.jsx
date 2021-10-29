@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 export default function EditUserForm({ users, setUsers }) {
   console.log("Inside EditUserForm state: ", users);
 
+  const history = useHistory();
   const { userId } = useParams();
   const foundUser = users.find((user) => {
     return user.id === parseInt(userId);
@@ -23,8 +24,6 @@ export default function EditUserForm({ users, setUsers }) {
     userToEdit.profile?.firstName ?? ""
   );
   const [lastName, setLastName] = useState(userToEdit.profile?.lastName ?? "");
-
-  const history = useHistory();
 
   const handleUserName = (event) => {
     setUserName(event.target.value);
@@ -69,8 +68,8 @@ export default function EditUserForm({ users, setUsers }) {
         console.log("Updated user: ", updatedUser);
 
         const updatedUsers = users.map((user) => {
-          if (updatedUser.id === userId) {
-            return updatedUser;
+          if (updatedUser.data.id === user.id) {
+            return updatedUser.data;
           } else {
             return user;
           }
