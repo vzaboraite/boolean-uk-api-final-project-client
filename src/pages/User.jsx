@@ -26,8 +26,8 @@ export default function User({ users }) {
          ?. operator => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
        */
         <>
-          <p>Name: {foundUser.profile?.firstName ?? ""}</p>
-          <p>Surname: {foundUser.profile?.lastName ?? ""}</p>
+          <p>{foundUser.profile?.firstName ?? ""}</p>
+          <p>{foundUser.profile?.lastName ?? ""}</p>
         </>
       )}
       <button onClick={() => history.push(`/users/${userId}/edit`)}>
