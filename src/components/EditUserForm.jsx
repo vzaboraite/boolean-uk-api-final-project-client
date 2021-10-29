@@ -26,18 +26,22 @@ export default function EditUserForm({ users, setUsers }) {
   const [lastName, setLastName] = useState(userToEdit.profile?.lastName ?? "");
 
   const handleUserName = (event) => {
+    event.preventDefault()
     setUserName(event.target.value);
   };
 
   const handleEmail = (event) => {
+    event.preventDefault()
     setEmail(event.target.value);
   };
 
   const handleFirstName = (event) => {
+    event.preventDefault()
     setFirstName(event.target.value);
   };
 
   const handleLastName = (event) => {
+    event.preventDefault()
     setLastName(event.target.value);
   };
 

@@ -25,20 +25,30 @@ const CreateRecipeForm = (props) => {
   });
 
   const handleTitle = (event) => {
+    event.preventDefault()
     setTitle(event.target.value);
   };
+
   const handleDescription = (event) => {
+    event.preventDefault()
     setDescription(event.target.value);
   };
+
   const handleprepTime = (event) => {
+    event.preventDefault()
     setPrepTime(event.target.value);
   };
+
   const handlecookingTime = (event) => {
+    event.preventDefault()
     setCookingTime(event.target.value);
   };
+
   const handleName = (event) => {
+    event.preventDefault()
     setName(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // data: {
