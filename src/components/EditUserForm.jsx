@@ -56,7 +56,7 @@ export default function EditUserForm({ users, setUsers }) {
     console.log("User to update: ", userToUpdate);
 
     const fetchOptions = {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
