@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateRecipeForm from "./components/CreateRecipeForm";
 import Users from "./pages/Users";
@@ -36,6 +36,14 @@ function App() {
 
   return (
     <>
+      <ul>
+        <li>
+          <Link to="/recipes">Recipes</Link>
+        </li>
+        <li>
+          <Link to="/users">Users</Link>
+        </li>
+      </ul>
       <Switch>
         <Route exact path="/users">
           <Users users={users} />
