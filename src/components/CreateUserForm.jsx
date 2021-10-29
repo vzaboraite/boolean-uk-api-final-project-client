@@ -40,7 +40,7 @@ export default function CreateUserForm({ users, setUsers }) {
                 lastName,
             },
         };
-        console.log("User to create: ", userToCreate);
+        // console.log("User to create: ", userToCreate);
 
         const fetchOptions = {
             method: "POST",

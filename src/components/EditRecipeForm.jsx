@@ -12,7 +12,7 @@ export default function EditRecipeForm(props) {
         return recipe.id === parseInt(recipeId)
     })
 
-    console.log("recipe id", recipeId)
+    // console.log("recipe id", recipeId)
 
     const [recipeToEdit, setRecipeToEdit] = useState(foundRecipe)
     const [title, setTitle] = useState(recipeToEdit.title);

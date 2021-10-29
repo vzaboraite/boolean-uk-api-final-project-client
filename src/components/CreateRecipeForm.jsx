@@ -14,15 +14,15 @@ const CreateRecipeForm = (props) => {
   const [cookingTime, setCookingTime] = useState("");
   const [name, setName] = useState([]);
 
-  console.log("Inside CreateRecipeForm State: ", {
-    recipes: {
-      title,
-      description,
-      prepTime: parseInt(prepTime, 10),
-      cookingTime: parseInt(cookingTime, 10),
-      name,
-    },
-  });
+  // console.log("Inside CreateRecipeForm State: ", {
+  //   recipes: {
+  //     title,
+  //     description,
+  //     prepTime: parseInt(prepTime, 10),
+  //     cookingTime: parseInt(cookingTime, 10),
+  //     name,
+  //   },
+  // });
 
   const handleTitle = (event) => {
     event.preventDefault()
@@ -90,7 +90,7 @@ const CreateRecipeForm = (props) => {
     fetch("http://localhost:3030/recipes", fetchOptions)
       .then((res) => res.json())
       .then((newRecipeData) => {
-        console.log("Recipe Data TO POST: ", newRecipeData);
+        // console.log("Recipe Data TO POST: ", newRecipeData);
         history.push("/recipes");
 
         setRecipes([...recipes, newRecipeData.data]);

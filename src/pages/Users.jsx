@@ -4,7 +4,7 @@ import User from "./User";
 export default function Users({ users }) {
   const history = useHistory();
 
-  console.log({ users });
+  // console.log({ users });
 
   return (
     <>

@@ -56,7 +56,7 @@ export default function EditUserForm({ users, setUsers }) {
         lastName,
       },
     };
-    console.log("User to update: ", userToUpdate);
+    // console.log("User to update: ", userToUpdate);
 
     const fetchOptions = {
       method: "PUT",

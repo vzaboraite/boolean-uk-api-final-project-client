@@ -16,7 +16,7 @@ function App() {
     fetch("http://localhost:3030/users")
       .then((res) => res.json())
       .then((usersData) => {
-        console.log({ usersData: usersData.data });
+        // console.log({ usersData: usersData.data });
         setUsers(usersData.data);
       });
   }, []);
@@ -25,7 +25,7 @@ function App() {
     fetch("http://localhost:3030/recipes")
       .then((res) => res.json())
       .then((recipesData) => {
-        console.log({ recipesData: recipesData.data });
+        // console.log({ recipesData: recipesData.data });
         setRecipes(recipesData.data);
       });
   }, []);
